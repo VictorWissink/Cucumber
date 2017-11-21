@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: Steps.CucumberIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 132, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 103.91 sec <<< FAILURE! - in Steps.CucumberIntegrationTest
+Then the added user should be "Selders" "39" "100003"(| Tom | 43 | 10000 | Selders | 39 | 100003 |)  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: salary does not have the correct value
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:26)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:228)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:218)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	at Steps.StepDefsUITest.theAddedUserShouldBe(StepDefsUITest.java:218)
+	at ✽.Then the added user should be "Selders" "39" "100003"(seleniumTests.feature:81)
+
+| Tom | 43 | 10000 | Selders | 39 | 100003 |  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: salary does not have the correct value
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:26)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:228)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:218)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	at Steps.StepDefsUITest.theAddedUserShouldBe(StepDefsUITest.java:218)
+	at ✽.Then the added user should be "Selders" "39" "100003"(seleniumTests.feature:81)
+
+Then the added user should be "Rutte" "54" "100000"(| Mark | 23 | 12000 | Rutte | 54 | 100000 |)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: salary does not have the correct value
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:26)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:228)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:218)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	at Steps.StepDefsUITest.theAddedUserShouldBe(StepDefsUITest.java:218)
+	at ✽.Then the added user should be "Rutte" "54" "100000"(seleniumTests.feature:81)
+
+| Mark | 23 | 12000 | Rutte | 54 | 100000 |  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: salary does not have the correct value
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:26)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:228)
+	at Steps.StepDefsUITest$8.apply(StepDefsUITest.java:218)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	at Steps.StepDefsUITest.theAddedUserShouldBe(StepDefsUITest.java:218)
+	at ✽.Then the added user should be "Rutte" "54" "100000"(seleniumTests.feature:81)
+
