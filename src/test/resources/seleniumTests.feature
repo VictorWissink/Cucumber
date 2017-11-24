@@ -71,6 +71,8 @@ Feature: User interface tests
      | El Quanto Serincho | 32  | 23000  |
 
 
+
+
  @web
  Scenario Outline: Edit user
    Given there are no users stored
@@ -84,3 +86,36 @@ Feature: User interface tests
    |  name    | age   | salary   | newName | newAge | newSalary |
    |  Tom     | 43    | 10000    | Selders | 39     | 100003    |
    |  Mark    | 23    | 12000    | Rutte   | 54     | 100000    |
+
+
+ @web
+ Scenario Outline: Add duplicate entry should fail
+   Given there are no users stored
+   And I am on the CRUDExample page
+   When I add User "<name>" "<age>" "<salary>"
+   And I add User "<name>" "<age>" "<salary>"
+   Then the page should display div with id "alert-nonexistend"
+
+   Examples:
+     | name   | age | salary |
+     | Thomas | 32  | 23000  |
+     | Thomas | 32  | 23000  |
+     | Henker | 32  | 23000  |
+     | hacker | 32  | 23000  |
+     | El Quanto Serincho | 32  | 23000  |
+
+ @web
+ Scenario Outline: invalid variable reference should fail
+   Given there are no users stored
+   And I am on the CRUDExample page
+   When I add User "<usernamename>" "<age>" "<salary>"
+   And I add User "<name>" "<age>" "<salary>"
+   Then the page should display div with id "alert-danger"
+
+   Examples:
+     | name   | age | salary |
+     | Thomas | 32  | 23000  |
+     | Thomas | 32  | 23000  |
+     | Henker | 32  | 23000  |
+     | hacker | 32  | 23000  |
+     | El Quanto Serincho | 32  | 23000  |

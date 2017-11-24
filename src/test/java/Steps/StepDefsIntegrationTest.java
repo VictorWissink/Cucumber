@@ -181,4 +181,19 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
     public void theClientCallsUserWithPreviousId() throws Throwable {
         executeGet("/user/" + previousUserID);
     }
+
+    @Then("^the client can edit the created user with \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void theClientCanEditTheCreatedUserWith(String name, String age, String salary) throws Throwable {
+
+        JSONObject user = new JSONObject();
+        user.put("name", name);
+        user.put("age", age);
+        user.put("salary", salary);
+
+
+        executePut("/user/" + previousUserID, user.toString().replace("\\\\","") );
+
+
+
+    }
 }

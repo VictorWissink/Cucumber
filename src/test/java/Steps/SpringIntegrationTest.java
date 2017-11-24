@@ -53,4 +53,8 @@ public class SpringIntegrationTest {
                     latestResponse = HttpRequest.delete(apiUrl + url);
            }
 
+    void executePut(String url, String body) throws IOException {
+        latestResponse = HttpRequest.put(apiUrl + url).contentType("application/json", "UTF-8").send(body);;
+    }
+
 }
