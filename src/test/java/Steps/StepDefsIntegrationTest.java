@@ -36,19 +36,19 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
 
     @Then("^the client receives status code of (\\d+)$")
     public void the_client_receives_status_code_of(int statusCode) throws Throwable {
-        //executeGet("sdf");
+
         assertThat("statuscode is not " + statusCode, latestResponse.code(), is(statusCode));
     }
 
     @And("^the client receives server version (.+)$")
     public void the_client_receives_server_version_body(String version) throws Throwable {
          assertThat("version is " + version, latestResponse.body(), is(version));
-      //  executeGet("sdf");
+
     }
 
     @When("^the client posts Willem to /user/$")
     public void theClientPostsToUser() throws Throwable {
-        // Write code herethat turns the phrase above into concrete actions
+
         JSONObject userWillem = new JSONObject();
         userWillem.put("name", "Willem");
         userWillem.put("age", "23");
@@ -90,7 +90,6 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
 
     @After("@cleanUpAfter")
     public void afterScenario() throws IOException {
-//        HttpRequest.delete("http://localhost:8080/SpringBootCRUDApp/api/user/");
 
         executeDelete("/user/");
         assertThat("statuscode is not 204", latestResponse.code(), is(204));
@@ -99,7 +98,7 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
 
     @Given("^there are no users stored$")
     public void thereAreNoUsersStored() throws Throwable {
-       // HttpRequest.delete("http://localhost:8080/SpringBootCRUDApp/api/user/");
+
         executeDelete("/user/");
         assertThat("statuscode is not 204", latestResponse.code(), is(204));
     }
@@ -131,7 +130,6 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
         userSjors.put("name", "Sjors");
         userSjors.put("age", "23");
         userSjors.put("salary", "20900");
-//        assertThat("this is some json", "some json", is(userSjors.toString()));
 
         executePost("/user/", userWillem.toString().replace("\\\\","") );
         assertThat("statuscode is not 201", latestResponse.code(), is(201));
@@ -143,7 +141,6 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
 
     @And("^the client receives three userObjects$")
     public void theClientReceivesThreeUserObjects() throws Throwable {
-//        JSONArray bodyJSON = new JSONArray(latestResponse.body());
         JSONArray responseJSON = new JSONArray(latestResponse.body());
        assertThat("Resonse does not have three user objects", responseJSON.length(), is(3));
 
@@ -151,7 +148,6 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
 
     @And("^the client receives user \"([^\"]*)\"$")
     public void theClientReceivesUser(String name) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         JSONObject response = new JSONObject(latestResponse.body());
 
         assertThat("User is not " + name, response.get("name"), is(name) );
@@ -165,7 +161,6 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
 
     @And("^the client receives an \"([^\"]*)\" message$")
     public void theClientReceivesAnMessage(String message) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         String body = latestResponse.body();
         assertThat("there is no " + message + " message, instead theres: " + body, body.contains(message));
     }
@@ -173,7 +168,6 @@ public class StepDefsIntegrationTest extends SpringIntegrationTest {
 
     @And("^the client deletes the created user$")
     public void theClientDeletesTheCreatedUser() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         executeDelete("/user/" + previousUserID);
     }
 

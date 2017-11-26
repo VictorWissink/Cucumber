@@ -28,7 +28,6 @@ public class StepDefsUITest extends SpringIntegrationTest {
     public void setupChromeDriver()
     {
 
-       // System.setProperty("webdriver.chrome.driver", "D:/Data/VWissink/Documents/chromedriver/chromedriver.exe");
     }
     @After("@web")
     public void TeardownChromeDriver()
