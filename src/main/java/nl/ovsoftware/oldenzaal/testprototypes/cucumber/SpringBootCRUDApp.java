@@ -8,7 +8,7 @@ import nl.ovsoftware.oldenzaal.testprototypes.cucumber.configuration.JpaConfigur
 
 
 @Import(JpaConfiguration.class)
-@SpringBootApplication(scanBasePackages={"com.ovsoftware.cucumber"})// same as @Configuration @EnableAutoConfiguration @ComponentScan
+@SpringBootApplication(scanBasePackages={"nl.ovsoftware.oldenzaal.testprototypes.cucumber"})// same as @Configuration @EnableAutoConfiguration @ComponentScan
 public class SpringBootCRUDApp {
 
 	public static void main(String[] args) {
