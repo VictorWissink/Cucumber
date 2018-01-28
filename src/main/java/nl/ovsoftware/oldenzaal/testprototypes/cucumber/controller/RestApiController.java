@@ -9,11 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import nl.ovsoftware.oldenzaal.testprototypes.cucumber.service.UserService;
@@ -29,7 +25,7 @@ public class RestApiController {
 	UserService userService; //Service which will do all data retrieval/manipulation work
 
 	// -------------------Retrieve All Users---------------------------------------------
-
+	@CrossOrigin
 	@RequestMapping(value = "/user/", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> listAllUsers() {
 		List<User> users = userService.findAllUsers();
@@ -41,7 +37,7 @@ public class RestApiController {
 	}
 
 	// -------------------Retrieve Single User------------------------------------------
-
+	@CrossOrigin
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getUser(@PathVariable("id") long id) {
 		logger.info("Fetching User with id {}", id);
@@ -54,6 +50,7 @@ public class RestApiController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	// -------------------Get   Version-------------------------------------------
+	@CrossOrigin
 	@RequestMapping(value = "/version", method = RequestMethod.GET)
 	public ResponseEntity<?> getVersion() {
 		logger.info("Fetching Version Number");
@@ -62,7 +59,7 @@ public class RestApiController {
 
 
 	// -------------------Create a User-------------------------------------------
-
+	@CrossOrigin
 	@RequestMapping(value = "/user/", method = RequestMethod.POST)
 	public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
 		logger.info("Creating User : {}", user);
@@ -81,6 +78,7 @@ public class RestApiController {
 
 	// ------------------- Update a User ------------------------------------------------
 
+	@CrossOrigin
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody User user) {
 		logger.info("Updating User with id {}", id);
@@ -102,7 +100,7 @@ public class RestApiController {
 	}
 
 	// ------------------- Delete a User-----------------------------------------
-
+	@CrossOrigin
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
 		logger.info("Fetching & Deleting User with id {}", id);
@@ -118,7 +116,7 @@ public class RestApiController {
 	}
 
 	// ------------------- Delete All Users-----------------------------
-
+	@CrossOrigin
 	@RequestMapping(value = "/user/", method = RequestMethod.DELETE)
 	public ResponseEntity<User> deleteAllUsers() {
 		logger.info("Deleting All Users");

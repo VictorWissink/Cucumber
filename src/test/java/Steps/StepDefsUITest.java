@@ -67,7 +67,7 @@ public class StepDefsUITest extends SpringIntegrationTest {
 
     @Given("^I am on the CRUDExample page$")
     public void iAmOnTheCRUDExamplePage() throws Throwable {
-       driver.get("localhost:8080/SpringBootCRUDApp/");
+       driver.get("localhost:8060/SpringBootCRUDApp/");
     }
 
     @When("^I add User \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")

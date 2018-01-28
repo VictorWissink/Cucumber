@@ -17,7 +17,7 @@ import java.io.IOException;
 public class SpringIntegrationTest {
 
     static HttpRequest latestResponse = null;
-    private String apiUrl = "http://localhost:8080/SpringBootCRUDApp/api";
+    private String apiUrl = "http://localhost:8060/SpringBootCRUDApp/api";
 
     void executeGet(String url) throws IOException {
         latestResponse = HttpRequest.get(apiUrl + url);
@@ -37,7 +37,7 @@ public class SpringIntegrationTest {
            }
 
     void executePut(String url, String body) throws IOException {
-        latestResponse = HttpRequest.put(apiUrl + url).contentType("application/json", "UTF-8").send(body);;
+        latestResponse = HttpRequest.put(apiUrl + url).contentType("application/json", "UTF-8").send(body);
     }
 
 }
