@@ -1,6 +1,6 @@
 # Cucumber
 
-Implementation of RobotFramework on a springboot application
+Implementation of Cucumber on a springboot application
 
 Used in the creation of this Git:
 
